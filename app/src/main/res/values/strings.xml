@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">吉风Demo</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">手机号</string>
+    <string name="prompt_password">任意密码</string>
+    <string name="action_sign_in">设置通信地址</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_phone">请输入正确号码</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">吉风物联示例</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_dev_list">设备列表</string>
+
+</resources>

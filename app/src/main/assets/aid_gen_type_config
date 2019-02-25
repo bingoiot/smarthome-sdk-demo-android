@@ -1,0 +1,20 @@
+[
+{"values":"009020","describe":"开关","icon":"c_button01","data":"1|0","typeid":"switch"},
+  {"values":"009031","describe":"红","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"009032","describe":"绿","icon":"c_light01","data":"0~255","typeid":"slider"},
+   {"values":"009033","describe":"蓝","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00903f","describe":"白","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C000","describe":"火警","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C001","describe":"烟雾","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C002","describe":"PM2.5","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C010","describe":"洪水","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C011","describe":"水浸","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C020","describe":"毒气","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C021","describe":"一氧化碳","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C030","describe":"可燃垃圾","icon":"c_light01","data":"0~255","typeid":"slider"},
+  {"values":"00C100","describe":"门磁","icon":"ic_doorlock","data":"0~255","typeid":"slider"},
+  {"values":"00C110","describe":"人体接近","icon":"ic_people_infrared","data":"0~255","typeid":"slider"},
+  {"values":"00C120","describe":"急救","icon":"ic_emergency_button","data":"0~255","typeid":"slider"},
+  {"values":"00C400","describe":"拆卸报警","icon":"c_light01","data":"0~255","typeid":"slider"},
+   {"values":"00CFFF","describe":"安防报警","icon":"ic_dev_security","data":"0|1","typeid":"switch"}
+   ]

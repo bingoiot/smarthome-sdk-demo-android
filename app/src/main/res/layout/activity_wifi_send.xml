@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/intelligent_scan_bg"
+    tools:context="com.jifan.actv.WifiSendActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+        <ListView
+            android:id="@+id/list_dev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:horizontalSpacing="2dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/scan_animate"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            android:id="@+id/ivcan" />
+
+        <TextView
+            android:text="广播"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:id="@+id/tv_scan" />
+
+
+        <ImageView
+            android:id="@+id/iv_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/ivcan"
+            android:background="@drawable/wifi1"
+            />
+
+        <TextView
+            android:id="@+id/tv_ssid"
+            android:text="无wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/iv_wifi"
+            />
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_alignTop="@+id/et_wifi_pwd"
+            android:background="@color/colorAccent"
+            android:text="配置" />
+        <EditText
+            android:id="@+id/et_wifi_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textVisiblePassword"
+            android:hint="请输入wifi密码"
+            android:layout_below="@+id/ivcan"
+            android:layout_toRightOf="@+id/iv_wifi"
+            android:layout_toLeftOf="@+id/btn_scan"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:text="配置设备上网"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_Sendwifi_explain" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

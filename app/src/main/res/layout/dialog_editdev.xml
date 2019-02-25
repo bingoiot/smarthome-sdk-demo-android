@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_dialogdev"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_one"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_portname"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="名称："
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_portname"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_one"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_titil_remoteLock"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="远程锁："
+            android:textColor="@color/colorPrimary" />
+
+        <CheckBox
+            android:id="@+id/cb_remote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_3"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_titil_localLock"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="本地锁："
+            android:textColor="@color/colorPrimary" />
+
+        <CheckBox
+            android:id="@+id/cb_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_4"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_titil_guestLock"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="体验锁："
+            android:textColor="@color/colorPrimary" />
+
+        <CheckBox
+            android:id="@+id/cb_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+         />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_5"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_titil_share"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="共享锁："
+            android:textColor="@color/colorPrimary" />
+
+        <CheckBox
+            android:id="@+id/cb_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+       />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_three"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/btn_cacell"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:text="关闭" />
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorAccent"
+            android:text="保存" />
+    </RelativeLayout>
+
+</RelativeLayout>

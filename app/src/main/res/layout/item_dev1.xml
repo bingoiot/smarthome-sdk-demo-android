@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_dev_c"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    android:padding="5dp"
+    android:descendantFocusability="blocksDescendants"
+>
+
+
+    <ImageView
+        android:id="@+id/iv_port"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        materialdesign:srcCompat="@drawable/ic_dev_switch"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+android:layout_centerHorizontal="true"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/tv_dev_titil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_below="@+id/iv_port"
+        android:layout_marginBottom="3dp"
+        android:text="名称"
+       />
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+[
+  {"id":1,"values":"001010","describe":"开关","icon":"ic_dev_switch","data":"1|0","typeid":"0401"},
+  {"id":2,"values":"001000","describe":"按键","icon":"c_switch","data":"1|0","typeid":"0401"},
+  {"id":3,"values":"001040","describe":"灯","icon":"c_light","data":"1|0","typeid":"0401"},
+  {"id":4,"values":"001023","describe":"调光led","icon":"c_rgb_lig","data":"1|0","typeid":"0401"},
+   {"id":5,"values":"001030","describe":"86插座","icon":"ic_dev_socket","data":"1|0","typeid":"0401"},
+   {"id":6,"values":"001031","describe":"排插","icon":"ic_dev_socket_line","data":"1|0","typeid":"0401"},
+   {"id":7,"values":"001041","describe":"窗帘","icon":"ic_dev_curtains","data":"1|0|2","typeid":"0401"},
+ {"id":8,"values":"001045","describe":"百分比窗帘","icon":"ic_dev_curtains_2","data":"0~100","typeid":"0401"},
+   {"id":9,"values":"001043","describe":"百叶窗帘","icon":"ic_dev_curtains_3","data":"0~100","typeid":"0401"},
+      {"id":10,"values":"001100","describe":"红外线","icon":"hw_cfx_on","data":"0~100","typeid":"0401"},
+  {"id":19,"values":"002100","describe":"风扇","icon":"ic_fan","data":"0~100","typeid":"0401"},
+  {"id":20,"values":"002201","describe":"空调","icon":"hw_kt_han","data":"0~100","typeid":"0401"},
+  {"id":21,"values":"002102","describe":"电视机","icon":"hw_dsj_sta","data":"0~100","typeid":"0401"},
+    {"id":11,"values":"005001","describe":"温度传感器","icon":"ic_temperature","data":"0~100","typeid":"0401"},
+     {"id":12,"values":"005002","describe":"湿度传感器","icon":"ic_humidity","data":"0~100","typeid":"0401"},
+     {"id":13,"values":"005000","describe":"温湿度传感器","icon":"ic_temp_humidity","data":"0~100","typeid":"0401"},
+    {"id":14,"values":"004100","describe":"门磁报警器","icon":"ic_doorlock","data":"1|0","typeid":"0401"},
+     {"id":15,"values":"004110","describe":"人体线外","icon":"ic_people_infrared","data":"1|0 ","typeid":"0401"},
+   {"id":16,"values":"004120","describe":"紧急求救按钮","icon":"ic_emergency_button","data":"1|0 ","typeid":"0401"},
+  {"id":17,"values":"00C130","describe":"低电压传感器","icon":"ic_low_voltage","data":"0~220","typeid":"0401"},
+    {"id":18,"values":"004FFF","describe":"安防设备","icon":"ic_dev_security","data":"1|0","typeid":"0401"}
+]

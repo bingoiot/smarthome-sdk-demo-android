@@ -18,6 +18,10 @@ import java.util.ArrayList;
 public class Scene {
 
     public class State {
+        public static final int Succeed = 0x00;
+        public static final int Faile = 1;
+        public static final int Error = 2;
+        public static final int Invalid = 3;
         public static final int Run = 11;
         public static final int Pause = 12;
         public static final int Stop = 13;
@@ -100,7 +104,7 @@ public class Scene {
             buf = FileSystem.genPackage(name, arg);
 
         } else {
-            buf = FileSystem.genPackage(name, Common.op_vmTest);
+            buf = FileSystem.genPackage(name, (byte)State.Test);
         }
         return Aps.reqSend(keyID, addr,seq, (byte) 0x00, AttributeID.PDO_Scene, AttributeID.Command.WriteState, AttributeID.Option.Default, buf, buf.length);
     }
@@ -166,18 +170,18 @@ public class Scene {
     {
         switch(state)
         {
-            case Common.op_succeed:
-            case Common.op_faile:
-            case Common.op_vmInvalid:
-            case Common.op_vmRun:
-            case Common.op_vmPause:
-            case Common.op_vmStop:
-            case Common.op_vmFinished:
-            case Common.op_vmNoTask:
-            case Common.op_vmSysTick:
-            case Common.op_vmTest:
-            case Common.op_vmJoined:
-            case Common.op_vm_param:
+            case State.Succeed:
+            case State.Faile:
+            case State.Invalid:
+            case State.Run:
+            case State.Pause:
+            case State.Stop:
+            case State.Finished:
+            case State.Notask:
+            case State.Systick:
+            case State.Test:
+            case State.Joined:
+            case State.Param:
                 return true;
             default:
                 return false;

@@ -78,15 +78,15 @@ public class Record{
     }
     public static int reqReadHistory(byte keyID,byte[] addr,int seq)
     {
-        return Aps.reqSend(keyID,addr,seq,(byte)0x00, Common.aID_PDO_Type_History_Record, Common.cmd_read, Common.aID_Common_Option);
+        return Aps.reqSend(keyID,addr,seq,(byte)0x00, AttributeID.PDO_History_Record, AttributeID.Command.Read, AttributeID.Option.Default);
     }
     public static int reqDeleteHistory(byte keyID,byte[] addr,int seq)
     {
-        return Aps.reqSend(keyID,addr,seq,(byte)0x00, Common.aID_PDO_Type_History_Record, Common.cmd_del, Common.aID_Common_Option);
+        return Aps.reqSend(keyID,addr,seq,(byte)0x00, AttributeID.PDO_History_Record, AttributeID.Command.Del, AttributeID.Option.Default);
     }
     public static int reqReadHistoryEnableFlag(byte keyID, byte[] addr, int seq)
     {
-        return Aps.reqSend(keyID,addr,seq,0,Common.aID_PDO_Type_History_Record, Common.cmd_readstate,Common.aID_Common_Option);
+        return Aps.reqSend(keyID,addr,seq,0,AttributeID.PDO_History_Record, AttributeID.Command.ReadState,AttributeID.Option.Default);
     }
     public static int reqWriteHistoryEnableFlag(byte keyID, byte[] addr, int seq, boolean enable)
     {
@@ -95,15 +95,15 @@ public class Record{
             buf[0] = 0;
         else
             buf[0] = 1;
-        return Aps.reqSend(keyID,addr,seq,0,Common.aID_PDO_Type_History_Record, Common.cmd_readstate,Common.aID_Common_Option,buf,1);
+        return Aps.reqSend(keyID,addr,seq,0,AttributeID.PDO_History_Record, AttributeID.Command.WriteState,AttributeID.Option.Default,buf,1);
     }
     public static int reqReadAlarm(byte keyID,byte[] addr,int seq)
     {
-        return Aps.reqSend(keyID,addr,seq,(byte)0x00, Common.aID_PDO_Type_Alarm_Record, Common.cmd_read, Common.aID_Common_Option);
+        return Aps.reqSend(keyID,addr,seq,(byte)0x00, AttributeID.PDO_Alarm_Record, AttributeID.Command.Read, AttributeID.Option.Default);
     }
     public static int reqDeleteAlarm(byte keyID,byte[] addr,int seq)
     {
-        return Aps.reqSend(keyID,addr,seq,(byte)0x00, Common.aID_PDO_Type_Alarm_Record, Common.cmd_del, Common.aID_Common_Option);
+        return Aps.reqSend(keyID,addr,seq,(byte)0x00, AttributeID.PDO_Alarm_Record, AttributeID.Command.Del, AttributeID.Option.Default);
     }
     private static Aps.onSectionListener recordListener = new Aps.onSectionListener() {
         @Override

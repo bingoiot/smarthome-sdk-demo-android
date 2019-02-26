@@ -55,7 +55,7 @@ public class DevManage {
         boolean guestLock = DeviceHelper.getGuestLockFlag(devAddr);
         boolean ShareLock = DeviceHelper.getShareLockFlag(devAddr);
         int devtype = DeviceHelper.getDevicetype(devAddr);
-        byte keyID = Common.keyID_none;
+        byte keyID = DeviceHelper.KeyID.Default;
         String guestey = Clib.bytes2Hex(DeviceHelper.getDeviceKey(devAddr, DeviceHelper.KeyID.Guest), '\0');
         if (guestey == null) {
             guestey = "";
@@ -278,7 +278,6 @@ public class DevManage {
                             aid_value av = new aid_value();
                             av.setAid(a_id);
                             av.setValues("00");
-                            av.setDtype(Common.getDtypeByaID(a_id));//获取数据类型
                             aidValueList.add(av);
                         } else if (a_id < 4096) {//小于1000是设备属性
                             GD_list.add(a_id);

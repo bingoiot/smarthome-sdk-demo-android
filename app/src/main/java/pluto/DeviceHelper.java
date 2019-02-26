@@ -607,7 +607,7 @@ public class DeviceHelper extends Thread {
                 }
             }
         }
-        return Common.aID_Gen_Type_Unkown;
+        return ApplicationID.Unkown;
     }
     //port=0获取设备属性
     public static int[] getPortAttributeList(byte[] addr, byte port) {
@@ -676,7 +676,7 @@ public class DeviceHelper extends Thread {
                 if ((dev.stry < 5) && (dev.state != state_device_ready)) {
                     dev.stry++;
                     if (dev.devInfo == null) {
-                        reqReadDeviceInfo(Common.keyID_none, dev.addr, Common.osDisable);
+                        reqReadDeviceInfo(KeyID.Default, dev.addr, Common.osDisable);
                     }
                     else {
                         if (dev.keyID == KeyID.Admin) {

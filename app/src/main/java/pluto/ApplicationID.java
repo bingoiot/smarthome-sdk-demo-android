@@ -93,4 +93,6 @@ public class ApplicationID {
     ///////////////////////////////////////////////////////////
     public static final int RFASKRemoteCtrl			    =0x007000;
     public static final int UART						    =0x007010;
+
+    public static final int Unkown = 0x00FFFF;
 }

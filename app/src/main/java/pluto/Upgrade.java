@@ -13,6 +13,15 @@ import java.util.ArrayList;
 
 public class Upgrade {
 
+    public class State{
+        public static final byte Succeed = 0x00;
+        public static final byte Faile = 1;
+        public static final byte Error = 2;
+        public static final byte Invalid= 3;
+        public static final byte Stop  = 0x20;
+        public static final byte Start = 0x21;
+        public static final byte Finished = 0x22;
+    }
     public static void initialization(){
         Aps.setSectionListener(AttributeID.PDO_Upgrade,myListener);
     }
@@ -54,10 +63,10 @@ public class Upgrade {
                 root.put("server_port",server_port);
                 root.put("server_url",server_url);
                 root.put("try",stry);
-                root.put("state",Common.op_upgrade_start);
+                root.put("state",State.Start);
                 String out = root.toString();
                 byte[] buf = out.getBytes();
-                return Aps.reqSend(keyID,addr, Common.getSeq(),(byte)0x00, AttributeID.PDO_Upgrade, AttributeID.Command.Write, Common.aID_Common_Option,buf,buf.length);
+                return Aps.reqSend(keyID,addr, Common.getSeq(),(byte)0x00, AttributeID.PDO_Upgrade, AttributeID.Command.Write, AttributeID.Option.Default,buf,buf.length);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -66,7 +75,7 @@ public class Upgrade {
     }
     public static int reqReadInfo(byte keyID,byte[] addr)
     {
-        return Aps.reqSend(keyID,addr, Common.getSeq(),(byte)0x00, AttributeID.PDO_Upgrade, AttributeID.Command.Read, Common.aID_Common_Option);
+        return Aps.reqSend(keyID,addr, Common.getSeq(),(byte)0x00, AttributeID.PDO_Upgrade, AttributeID.Command.Read, AttributeID.Option.Default);
     }
     private static Aps.onSectionListener myListener = new Aps.onSectionListener() {
         @Override

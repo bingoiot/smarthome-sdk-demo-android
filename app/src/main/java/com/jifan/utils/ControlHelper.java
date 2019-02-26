@@ -71,9 +71,8 @@ public class ControlHelper {
     public static void SendData(dev_port devPort, int aID, byte[] data) {
 
         byte[] mac = devPort.getDevAddr();
-        byte dtype = Common.getDtypeByaID(aID);
         byte port = (byte) devPort.getPort();
-        Aps.reqSend((byte) devPort.getKeyid(), mac,Common.getSeq(), port,aID, Common.cmd_write, Common.aID_Common_Option, data, data.length);
+        Aps.reqSend((byte) devPort.getKeyid(), mac,Common.getSeq(), port,aID, AttributeID.Command.Write, AttributeID.Option.Default, data, data.length);
 
     }
 
@@ -130,10 +129,9 @@ public class ControlHelper {
 
         if(avlist!=null) {
             for (aid_value ad : avlist) {
-                byte dtype = Common.getDtypeByaID(ad.getAid());
                 byte[] data = new byte[1];
                 data[0] = 0;
-                Aps.reqSend((byte) devPort.getKeyid(), mac, Common.getSeq(), port, ad.getAid(), Common.cmd_read, Common.aID_Common_Option, data, 1);
+                Aps.reqSend((byte) devPort.getKeyid(), mac, Common.getSeq(), port, ad.getAid(), AttributeID.Command.Read, AttributeID.Option.Default, data, 1);
 
             }
         }

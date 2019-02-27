@@ -67,7 +67,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Write = 0x02;
@@ -83,7 +83,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Write = 0x02;
@@ -102,7 +102,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Write = 0x02;
@@ -118,7 +118,7 @@ public class AttributeID {
         }
         public class Command{
             /** support to command option with Default and percent;*/
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Set = 0x02;
@@ -143,7 +143,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Set = 0x02;
@@ -162,7 +162,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Send = 0x02;
@@ -176,7 +176,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Set = 0x02;
@@ -190,7 +190,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Set = 0x02;
@@ -204,7 +204,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Set = 0x02;
@@ -218,7 +218,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int Read = 0x01;
             public static final int ReadResponse = 0x81;
             public static final int Set = 0x02;
@@ -231,7 +231,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int ReadNum = 0x01;
             public static final int ReadNumResponse = 0x81;
             public static final int ReadIDCard = 0x02;
@@ -250,7 +250,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int ReadNum = 0x01;
             public static final int ReadNumResponse = 0x81;
             public static final int ReadPassword = 0x02;
@@ -269,7 +269,7 @@ public class AttributeID {
             public static final int Default = 0x00;
         }
         public class Command{
-            public static final int Recieve = 0x80;
+            public static final int Response= 0x80;
             public static final int ReadNum = 0x01;
             public static final int ReadNumResponse = 0x81;
             public static final int ReadFinger = 0x02;

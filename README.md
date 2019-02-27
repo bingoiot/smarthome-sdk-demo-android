@@ -290,3 +290,28 @@ Scene.setSectionListener(new Scene.onSectionListener() {
 ```
 Scene.reqRun(keyid, addr, Common.getSeq(),"filename.vm", "");
 ```
+**4.7 zigbee子设备加入网关**
+
+4.7.1 设置入网监听
+```
+myDeviceHelperListener=new DeviceHelper.onSectionListener() {
+         @Override
+        public void NewPortIndicates(byte[] addr, JSONObject describe) {//网关有新设备进入
+        }
+ }
+
+ DeviceHelper.setSectionListener(myDeviceHelperListener );
+```
+
+4.7.2 网关开启允许入网状态
+
+```
+ DeviceHelper.reqDevEnableJoin(Keyid, addr, Common.getSeq(), (5 * 60 * 1000));//允许新设备加入
+```
+
+4.7.3 关闭网关入网状态
+```
+   DeviceHelper.reqDevDisableJoin(Keyid, addr, Common.getSeq());//禁止入网
+   DeviceHelper.removeSectionListener(myDeviceHelperListener);//移除监听
+```
+***注意**：为了安全，退出Activity务必要禁止入网*

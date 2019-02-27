@@ -70,41 +70,29 @@ public class WifiSearhActivity extends BaseActivity {
             }
         };
         list_dev = new ArrayList<>();
-        list_port=new ArrayList<>();
+        list_port = new ArrayList<>();
         macs = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this, R.layout.list_item_1, macs);
         listView_dev.setAdapter(adapter);
 
 
 
-
+/*  默认全部添加，生产项目，最好手动确认
         listView_dev.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view,final int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view,final int pos, long l) {
                 new AlertDialog.Builder(currentcontext)
-                        .setTitle("确定添加设备：" + macs.get(i) + "?")
+                        .setTitle("确定添加设备：" + macs.get(pos) + "?")
                         .setIcon(android.R.drawable.ic_dialog_info)
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int arg1) {
 
                                 synchronized (macs) {
                                 synchronized (list_dev) {
-                                    List<dev_hardware> all = app.getDevList();
-                                    if(all==null)
-                                        all=new ArrayList<>();
-                                    dev_hardware item=list_dev.get(i);
-                                    all.add(item);
-                                    app.setDevList(all);//保存本地
-                                    String key = item.getkeys();
-
-                                    if (key != null && key != "") {
-                                        byte[] comonkey = Clib.hexToBytes(key);
-                                        byte[] addr=Clib.hexToBytes(item.getMac());
-                                        Aps.addDeviceKey(addr, (byte) item.getKeyid(), comonkey);//往通信层添加设备
-                                    }
-
-                                    macs.remove(i);
-                                    list_dev.remove(i);
+                                    dev_hardware item=list_dev.get(pos);
+                                    addDev( item);
+                                    macs.remove(pos);
+                                    list_dev.remove(pos);
                                     adapter.notifyDataSetChanged();
 
                                 }}
@@ -117,9 +105,31 @@ public class WifiSearhActivity extends BaseActivity {
                         }).show();
             }
         });
+        */
         DeviceHelper.setSectionListener(myDeviceHelperListener);
         seach();
+    }
 
+    //保存设备
+    void addDev(dev_hardware item) {
+        List<dev_hardware> all = app.getDevList();
+        boolean isHave = false;
+        for (int i = 0; i < all.size(); i++) {
+            if (all.get(i).getMac().equals(item.getMac())) {
+                isHave = true;
+                break;
+            }
+        }
+        if (!isHave) {
+            all.add(item);
+            app.setDevList(all);//保存本地
+        }
+        String key = item.getkeys();
+        if (key != null && key != "") {
+            byte[] comonkey = Clib.hexToBytes(key);
+            byte[] addr = Clib.hexToBytes(item.getMac());
+            Aps.addDeviceKey(addr, (byte) item.getKeyid(), comonkey);//往通信层添加设备
+        }
     }
 
     private void seach() {
@@ -182,11 +192,12 @@ public class WifiSearhActivity extends BaseActivity {
                 if (isAdd)//可添加
                 {
                     dev_hardware devHardware = DevManage.getDevInfo(addr);
-                    List<dev_port>  listP=   DevManage.getdevport(addr);//端口
-                    listP=DevManage.InitDev_port(listP);//初始化
-                    devHardware.setDev_portList(listP );
+                    List<dev_port> listP = DevManage.getdevport(addr);//端口
+                    listP = DevManage.InitDev_port(listP);//初始化
+                    devHardware.setDev_portList(listP);
 
                     list_dev.add(devHardware);
+                    addDev( devHardware);//默认添加 注释掉手动添加
                     macs.add(StringHelper.bytesToHexString(addr));
                     myHandler.sendEmptyMessage(1);
                 }

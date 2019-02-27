@@ -60,14 +60,14 @@ public class TestUserListActivity extends BaseActivity implements View.OnClickLi
                 }
             }
         };
-        List<dev_hardware> all = app.getDevList();
-        if(!(all!=null&&all.size()>0))
-        {
+        Object o = getIntent().getSerializableExtra("mode");
+        if (o != null) {
+            dev_hardware   old = (dev_hardware) o;
+            ed_addr.setText(old.getMac());
+        } else {
             ShowTost("请先添加设备");
             this.finish();
             return;
-        }else {
-            ed_addr.setText(all.get(0).getMac());
         }
     }
 

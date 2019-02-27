@@ -75,6 +75,20 @@ public class MyApp extends Application {
         String pStr = gson2.toJson(data);
         FileUtils.modelToShare(this, pStr, Config.KEY_SHARE_ALLDEV);
     }
+
+    //设置单个的设备
+    public void setDev(dev_hardware item) {
+        List<dev_hardware> list=getDevList();
+        for (int i=0;i<list.size();i++)
+        {
+            if(list.get(i).getMac().equals(item.getMac()))
+            {
+                list.set(i,item);
+                break;
+            }
+        }
+            setDevList(list);
+    }
     public  List<aid_seed> getSeedList() {
          ContextHelper contextHelper=new ContextHelper(this.getApplicationContext());
         String data = contextHelper.getAssetjson("aid_dev_type_config");

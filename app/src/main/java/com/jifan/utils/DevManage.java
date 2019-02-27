@@ -292,8 +292,6 @@ public class DevManage {
         return devPortList;
     }
 
-
-
     /**
      * 是否有信号值
      *

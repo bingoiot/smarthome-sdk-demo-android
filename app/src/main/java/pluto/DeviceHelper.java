@@ -170,6 +170,10 @@ public class DeviceHelper extends Thread {
 
     public static int reqReadDeviceInfo(int keyID, byte[] dst, int seq) {
         Log.d(Common.TAG_Debug, "reqReadDeviceInfo: " + Clib.bytes2Hex(dst, ':') + " keyID:" + keyID);
+        Device_t dev = getDeviceByAddr(dst);
+        if (dev != null) {
+            dev.state = state_reading_device_info;
+        }
         return Aps.reqSend(keyID, dst, Common.getSeq(), 0, AttributeID.PDO_Device_Info, AttributeID.Command.Read, AttributeID.Option.Default);
     }
 
@@ -700,6 +704,13 @@ public class DeviceHelper extends Thread {
                             }
                             dev.state = state_reading_port_describe;
                         }
+                        int devtype = Clib.toInt(dev.devInfo, "dev_type");
+                        if (devtype == Type.Gateway) {
+                            for (onSectionListener mylistener : mySectionList) {//search every section listener to callback
+                                mylistener.CompleteDevice(dev.addr, dev.devInfo, dev.portList, dev.portDescribe);
+                                dev.state = state_device_ready;
+                            }
+                        }
                         //reqReadPorts(dev.keyID, dev.addr, Common.osDisable);
                     }
                     if (checkDeviceInfoComplete(dev) == true) {//device info incomplete
@@ -726,8 +737,6 @@ public class DeviceHelper extends Thread {
                             dev = getDeviceByAddr(src);
                             if (dev != null) {
                                 reqReadDeviceInfo(dev.keyID, dev.addr, Common.osDisable);
-                                dev.runtime = Clib.getUnixTime();
-                                dev.state = state_reading_device_info;
                             }
                         }
                         break;
@@ -742,9 +751,6 @@ public class DeviceHelper extends Thread {
                                 addDevice(src);
                                 dev = getDeviceByAddr(src);
                                 if (dev != null) {
-                                    reqReadDeviceInfo(dev.keyID, dev.addr, Common.osDisable);
-                                    dev.runtime = Clib.getUnixTime();
-                                    dev.state = state_reading_device_info;
                                     dev.key_word = pdata[0];
                                 }
                             }
@@ -761,13 +767,7 @@ public class DeviceHelper extends Thread {
                                 }
                                 if ((dev != null) && (devInfo != null)) {
                                     addDeviceInfo(src, devInfo);
-                                    int devtype = Clib.toInt(dev.devInfo, "dev_type");
-                                    if (devtype == Type.Gateway) {
-                                        for (onSectionListener mylistener : mySectionList) {//search every section listener to callback
-                                            mylistener.CompleteDevice(dev.addr, dev.devInfo, dev.portList, dev.portDescribe);
-                                            dev.state = state_device_ready;
-                                        }
-                                    }
+                                    dev.runtime = Clib.getUnixTime();
                                 }
                                 if ((dev != null) && (dev.portList == null)) {
                                     dev.state = state_reading_port_list;
@@ -824,12 +824,10 @@ public class DeviceHelper extends Thread {
                 for (onSectionListener subsec : mySectionList) {//search every section listener to callback
                     switch (aID) {
                         case AttributeID.PDO_Beacon:
-                            if (cmd == AttributeID.Command.Beacon)
-                                subsec.ReceiveBeacon(src, Common.osSucceed);
+                            subsec.ReceiveBeacon(src, Common.osSucceed);
                             break;
                         case AttributeID.PDO_Device_Indication://new device joined
-                            if (cmd == AttributeID.Command.Notify)
-                                subsec.DeviceJoinIndicates(src);
+                            subsec.DeviceJoinIndicates(src);
                             break;
                         case AttributeID.PDO_Device_Info://got device info
                             if (cmd == (AttributeID.Command.Response | AttributeID.Command.Read)) {

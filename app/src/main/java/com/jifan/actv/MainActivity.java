@@ -12,16 +12,18 @@ import android.widget.ListView;
 
 import com.jifan.Config;
 import com.jifan.model.dev_hardware;
+import com.jifan.utils.DevManage;
 import com.jifan.utils.MyListView;
 
 import java.util.List;
 
 import pluto.Clib;
 import pluto.DeviceHelper;
+import pluto.Pluto;
 
 
 public class MainActivity extends BaseActivity {
-    String[] funtionArry = {"设备入网配置", "扫描发现/添加设备", "获取、修改设备信息", "控制/监听设备", "黑白名单", "设备升级", "工厂配置", "情景编程"};
+    String[] funtionArry = {"设备入网配置", "扫描发现/添加设备", "获取、修改设备信息", "控制/监听设备", "黑白名单", "设备升级", "工厂配置", "情景编程", "zigbee子设备加入"};
     MyListView listView;
 
     @Override
@@ -56,22 +58,76 @@ public class MainActivity extends BaseActivity {
                         toActivity(WifiSearhActivity.class);
                         break;
                     case 2://获取设备信息
-                        toActivity(DevInfoActivity.class);
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                Bundle mBundle = new Bundle();
+                                mBundle.putSerializable("mode", app.getDevList().get(position));
+                                toActivity(DevInfoActivity.class, mBundle);
+                            }
+                        }).show();
                         break;
                     case 3:// 控制监听设备
                         toActivity(DevListActivity.class);
                         break;
                     case 4:// 黑白名单
-                        toActivity(TestUserListActivity.class);
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                Bundle mBundle = new Bundle();
+                                mBundle.putSerializable("mode", app.getDevList().get(position));
+                                toActivity(TestUserListActivity.class, mBundle);
+                            }
+                        }).show();
                         break;
                     case 5:// 设备升级
-                        toActivity(TestUpgradeActivity.class);
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                Bundle mBundle = new Bundle();
+                                mBundle.putSerializable("mode", app.getDevList().get(position));
+                                toActivity(TestUpgradeActivity.class, mBundle);
+                            }
+                        }).show();
                         break;
                     case 6:// 工厂配置
-                        toActivity(TestFactoryActivity.class);
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                Bundle mBundle = new Bundle();
+                                mBundle.putSerializable("mode", app.getDevList().get(position));
+                                toActivity(TestFactoryActivity.class, mBundle);
+                            }
+                        }).show();
                         break;
                     case 7://情景编程
-                        toActivity(TestSceneActivity.class);
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                Bundle mBundle = new Bundle();
+                                mBundle.putSerializable("mode", app.getDevList().get(position));
+                                toActivity(TestSceneActivity.class, mBundle);
+                            }
+                        }).show();
+                        break;
+                    case 8://zigbee 子设备加入
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                dev_hardware item = app.getDevList().get(position);
+                                if (DevManage.IsEnableJoin(item.getAids_gd())) {
+                                    if(item.getKeyid()==2) {
+                                        Bundle mBundle = new Bundle();
+                                        mBundle.putSerializable("mode", item);
+                                        toActivity(PortJoinActivity.class, mBundle);
+                                    }else {
+                                        ShowTost("非管理员，请重置设备，重新入网再测试！");
+                                    }
+                                } else {
+                                    ShowTost("非网关设备！");
+                                }
+                            }
+                        }).show();
                         break;
                 }
             }
@@ -89,11 +145,9 @@ public class MainActivity extends BaseActivity {
      */
     void intit() {
         List<dev_hardware> all = app.getDevList();
-        if(all!=null&&all.size()>0)
-        {
-            for(dev_hardware item :all)
-            {
-                DeviceHelper.AttachDevice(Clib.hexToBytes(item.getMac()), Clib.hexToBytes(item.getAdkey()), Clib.hexToBytes(item.getComkey()),  Clib.hexToBytes(item.getGuestey()));//添加设备到通信层
+        if (all != null && all.size() > 0) {
+            for (dev_hardware item : all) {
+                DeviceHelper.AttachDevice(Clib.hexToBytes(item.getMac()), Clib.hexToBytes(item.getAdkey()), Clib.hexToBytes(item.getComkey()), Clib.hexToBytes(item.getGuestey()));//添加设备到通信层
             }
 
         }

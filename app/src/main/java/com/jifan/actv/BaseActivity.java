@@ -33,9 +33,7 @@ import pluto.Pluto;
  */
 
 public class BaseActivity extends AppCompatActivity {
-
-
-
+    static {Pluto.Init();}
     protected MyApp app;
     Handler myHandler;
     protected  Context currentcontext;

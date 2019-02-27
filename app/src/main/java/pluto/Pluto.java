@@ -21,25 +21,22 @@ public class Pluto {//pluto device service object
         public static final int LoginFailed = 4;
         public static final int LogoutFailed = 5;
     }
-
-    static {
-        System.loadLibrary("Pluto");
-
-        NativeInterface.init();
-        DeviceHelper.initialization();
-        Record.initialization();
-        Scene.initialization();
-        Upgrade.initialization();
-        UserTable.initialization();
-        Factory.initialization();
-
-        NativeInterface.reqSetServerUrl("www.glalaxy.com");
-        NativeInterface.reqSetServerIP("119.23.8.181");
-        //NativeInterface.reqSetServerIP("192.168.1.101");
-        NativeInterface.reqSetServerTcpPort(16729);
-        NativeInterface.reqSetServerUDPPort(16729);
-        NativeInterface.reqSetLocalIP("192.168.1.2");
-        NativeInterface.reqSetLocalUDPPort(16729);
+     public static void Init(){
+         System.loadLibrary("Pluto");
+         NativeInterface.init();
+         DeviceHelper.initialization();
+         Record.initialization();
+         Scene.initialization();
+         Upgrade.initialization();
+         UserTable.initialization();
+         Factory.initialization();
+         NativeInterface.reqSetServerUrl("www.glalaxy.com");
+         NativeInterface.reqSetServerIP("119.23.8.181");
+         //NativeInterface.reqSetServerIP("192.168.1.101");
+         NativeInterface.reqSetServerTcpPort(16729);
+         NativeInterface.reqSetServerUDPPort(16729);
+         NativeInterface.reqSetLocalIP("192.168.1.2");
+         NativeInterface.reqSetLocalUDPPort(16729);
     }
     //用户登录
     public static  int reqLogin(byte[] user, byte[] psw){

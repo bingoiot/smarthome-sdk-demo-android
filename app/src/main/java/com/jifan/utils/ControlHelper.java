@@ -155,27 +155,27 @@ public class ControlHelper {
                     /*    case JifanDef.aID_Dev_Type_DemmerLEDLight:
                             new c_demer_led(context, item).show();
                             break; */
-                case AttributeID.Gen_WindowSwitch.Value://开关窗帘
+                case ApplicationID.WidowCovering://开关窗帘
                    // new c_curtains(context, item).show();
                     break;
-                case AttributeID.Gen_Window.Percent://百分比 窗帘
+                case ApplicationID.PercentWidowCovering://百分比 窗帘
                    // new c_curtains_percent(context, item).show();
                     break;
-                case AttributeID.Gen_Window.BlindsAngle://百叶窗
+                case ApplicationID.BlindWidowCovering://百叶窗
                    // new c_curtains_venetian(context, item).show();
                     break;
-                case AttributeID.Gen_Humidity.Value://温湿度
+                case ApplicationID.HumidityAndTemSensor://温湿度
                    // new c_temp_humidity(context, item).show();
                     break;
-                case AttributeID.Gen_Temperature.Value://温度
+                case ApplicationID.TemperatureSensor://温度
                     //new c_temperature(context, item).show();
                     break;
-                case AttributeID.Gen_Alarm.EmergenciAlarm://紧急求救按钮
-                case AttributeID.Gen_Alarm.Gen_AlarmZone:
+                case ApplicationID.EmergencyButtonAlarm://紧急求救按钮
+                case ApplicationID.SecurityAlarm:
                    // ControlHelper.c_EmergencyButtonAlarm(context, item, deviceportlist);
                     //updateAdpter();//刷新ui
                     break;
-                case AttributeID.Gen_Fan.Switch://风扇
+                case ApplicationID.Fan://风扇
 
                   //  new c_fan(context, item).show();
 
@@ -195,7 +195,7 @@ public class ControlHelper {
 
         Intent it;
         switch (item.getAid_dev_type()) {
-            case AttributeID.Gen_CommonLevel.Value:
+            case ApplicationID.LED_Light:
                 //new c_demer_led(context, item).show();
                 break;
             default:

@@ -40,7 +40,9 @@ public class dev_hardware implements Serializable {
     private boolean shareLock;
 
     private List<dev_port> dev_portList;
-    ///
+    /**
+     * 2管理员 3 一般用户 4 体验用户
+     */
     private int keyid;
 
     //设备类型 dev_invalide= 0x00, dev_gateway = 0x01,dev_route		= 0x02,dev_device 03 ,dev_endDevice 04

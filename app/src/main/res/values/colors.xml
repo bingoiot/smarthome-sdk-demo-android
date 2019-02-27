@@ -3,6 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="windowBackground">#efeff4</color>
     <color name="white">#FFFFFF</color><!--白色 -->
     <color name="dev_off">#A5A5A5</color><!--设备关 -->
     <color name="dev_default">#08ADFE</color><!--设备默认 -->

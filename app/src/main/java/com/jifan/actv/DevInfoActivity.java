@@ -64,20 +64,16 @@ dev_hardware old;//要修改的设备
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dev_info);
-
-
         cout = 0;
-        List<dev_hardware> all = app.getDevList();
-        if (all != null && all.size() > 0) {
-            old= all.get(0);
+        Object o = getIntent().getSerializableExtra("mode");
+        if (o != null) {
+            old = (dev_hardware) o;
             mac= Clib.hexToBytes(old.getMac());
-            ShowTost("编辑第一个设备：" + old.getMac());
         } else {
             ShowTost("请先添加设备");
             this.finish();
             return;
         }
-
         init();
     }
 

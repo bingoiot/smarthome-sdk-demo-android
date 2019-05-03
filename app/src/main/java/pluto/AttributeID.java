@@ -380,6 +380,25 @@ public class AttributeID {
         }
         public static final int Value = 0x00D105;/** Presure = Ascii float code,example: 12.4*/
     }
+    public class Gen_WindSpeed {
+
+        public class Option {
+            public static final int mL = 0x00;
+            public static final int L = 0x01;
+            public static final int ME3 = 0x02;
+            public static final int KME3 = 0x03;
+        }
+        public class Command {
+            public static final int Report = 0x80;
+            public static final int Read = 0x01;
+            public static final int ReadResponse = 0x81;
+            public static final int ReadSampleRate = 0x0A;
+            public static final int ReadSampleRateResponse = 0x8A;
+            public static final int SetSampleRate = 0x0B;
+            public static final int SetSampleRateResponse = 0x8B;
+        }
+        public static final int Value = 0x00D150;/** Flowmeter = Ascii float code,example: 12.4*/
+    }
     public class Gen_Flowmeter {
 
         public class Option {
@@ -431,7 +450,7 @@ public class AttributeID {
             public static final int SetSampleRate = 0x0B;
             public static final int SetSampleRateResponse = 0x8B;
         }
-        public static final int Value = 0x00D170;/** Watt = Ascii float code,example: 12.4*/
+        public static final int Value = 0x00D174;/** Watt = Ascii float code,example: 12.4*/
     }
     public class Gen_Voltage {
         public class Option {
@@ -450,7 +469,7 @@ public class AttributeID {
             public static final int SetSampleRate = 0x0B;
             public static final int SetSampleRateResponse = 0x8B;
         }
-        public static final int Value = 0x00D170;/** Valtage = Ascii float code,example: 12.4*/
+        public static final int Value = 0x00D178;/** Valtage = Ascii float code,example: 12.4*/
     }
     public class Gen_Amp {
         public class Option {
@@ -469,7 +488,7 @@ public class AttributeID {
             public static final int SetSampleRate = 0x0B;
             public static final int SetSampleRateResponse = 0x8B;
         }
-        public static final int Value = 0x00D170;/** Amp = Ascii float code,example: 12.4*/
+        public static final int Value = 0x00D17C;/** Amp = Ascii float code,example: 12.4*/
     }
     public class Gen_Frequecy {
         public class Option {

@@ -23,7 +23,7 @@ import pluto.Pluto;
 
 
 public class MainActivity extends BaseActivity {
-    String[] funtionArry = {"设备入网配置", "扫描发现/添加设备", "获取、修改设备信息", "控制/监听设备", "黑白名单", "设备升级", "工厂配置", "情景编程", "zigbee子设备加入"};
+    String[] funtionArry = {"设备入网配置", "扫描发现/添加设备", "获取、修改设备信息", "控制/监听设备", "黑白名单", "设备升级", "工厂配置", "情景编程", "zigbee子设备加入","传感器"};
     MyListView listView;
 
     @Override
@@ -126,6 +126,16 @@ public class MainActivity extends BaseActivity {
                                 } else {
                                     ShowTost("非网关设备！");
                                 }
+                            }
+                        }).show();
+                        break;
+                    case 9://传感器
+                        new dialog_dev_select(currentcontext, new dialog_dev_select.finish_istener() {
+                            @Override
+                            public void process(int position) {
+                                Bundle mBundle = new Bundle();
+                                mBundle.putSerializable("mode", app.getDevList().get(position));
+                                toActivity(SensorActivity.class, mBundle);
                             }
                         }).show();
                         break;

@@ -6,6 +6,8 @@
     在物联网系统中，app客户端也属于设备的一类。在通信中扮演的角色与智能硬件一至。
     引用sdk后，使app客户端成为万物互联的节点之一。通过基本的设置，可远程配置、控制设备，实时接收设备状态等数据。
     
+    ![demo](https://raw.githubusercontent.com/ludycool/openfile/master/jifan_android/andriod_demo_v1.png)
+    
 **基本工作流程：**
 
 1. App启动，调用so库。
